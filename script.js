@@ -1,4 +1,4 @@
-/** POLE A indexOf() – zistí na ktorej pozícii v poli sa nachádza daný prvok */
+/** POLE A indexOf() – zistí index hľadaného prvku */
 
 const employees = ['Harry', 'Hermione', 'Ron']
 
@@ -148,9 +148,9 @@ console.log(result)
 
 
 // Ako to funguje v poli objektov – pracujem s poľom books[]
-const esult = books.find((book) => {
+result = books.find((book) => {
     if (book.published === 1999) {
-        return book // Metóda find() vráti vždy celé pole
+        return book // Metóda find() vráti vždy celý objekt
     }
 })
 
@@ -230,3 +230,61 @@ findBook.forEach((book) => console.log(`Found ${book.title}`))
 findBook = books.filter((book) => book.published < 2000 && book.title.toLowerCase().includes('of'))
 findBook.forEach((book) => console.log(`New finding: ${book.title}`))
 
+
+/** Exercise
+ * Svedok videl z miesta vraždy odchádzať auto. Vie iba to, že ŠPZ obsahovala 22. Úlohou je v uvedenej databáze kriminálnikov
+ * nájsť tých, kt. majú v ŠPZ 22. Všetky ich údaje vypíš do konzoly v tvare:
+ *      - Meno
+ *      - Priezvisko
+ *      - Rok narodanie, atď.
+ * 
+ * Hľadaný výraz získaj pomocou promptu (v tomto prípade 22).
+ */
+
+const suspects = [{
+    firstName: 'Martin',
+    surname: 'Zelený',
+    birth: 1985,
+    licencePlate: '85C3322',
+    address: 'U sloupů 16',
+    city: 'České Budějovice'
+}, {
+    firstName: 'Jana',
+    surname: 'Růžová',
+    birth: 1996,
+    licencePlate: '93K3922',
+    address: 'Malská 29',
+    city: 'České Budějovice'
+}, {
+    firstName: 'Filip',
+    surname: 'Modrý',
+    birth: 1989,
+    licencePlate: '2EP6328',
+    address: 'Stevardská 38',
+    city: 'České Budějovice'
+}]
+
+// const input = prompt(`Please enter the part of the licence plate you are looking for.`)
+const input = '22'
+
+const findSuspect = suspects.filter((suspect) => suspect.licencePlate.toLowerCase().includes(input))
+
+findSuspect.forEach((suspect) => console.log(
+`Name: ${suspect.firstName}
+Surname: ${suspect.surname}
+Birth: ${suspect.birth}
+Licence Plate: ${suspect.licencePlate}
+Address: ${suspect.address}
+City: ${suspect.city}`)
+)
+
+// Experimentujem s deštrukturalizáciou objektov
+findSuspect.forEach(({ firstName, surname, birth, licencePlate, address, city }) => 
+    console.log(`
+    Name: ${firstName}
+    Surname: ${surname}
+    Birth: ${birth}
+    Licence Plate: ${licencePlate}
+    Address: ${address}
+    City: ${city}`)
+)

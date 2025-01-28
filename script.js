@@ -207,7 +207,7 @@ console.log(findBook)
  */
 
 findBook = books.filter((book) => {
-    const finding = book.published.toString().includes('19')
+    const finding = book.published.toString().includes('19') // Toto je zbytočné, čísla sa môžu porovnávať operátormi (< 2000)
     return finding
 })
 
@@ -217,7 +217,7 @@ findBook.forEach((book) => console.log(book.title))
 findBook = books.filter((book) => book.published < 2000)
 findBook.forEach((book) => console.log(`GPT ${book.title}`))
 
-// Filtrovanie podľa rkou vydania a názvu knihy
+// Filtrovanie podľa roku vydania a názvu knihy
 findBook = books.filter((book) => {
     const findPublished = book.published < 2000
     const findTitle = book.title.toLowerCase().includes('of')
@@ -230,5 +230,3 @@ findBook.forEach((book) => console.log(`Found ${book.title}`))
 findBook = books.filter((book) => book.published < 2000 && book.title.toLowerCase().includes('of'))
 findBook.forEach((book) => console.log(`New finding: ${book.title}`))
 
-
-// Comment reply – dá sa 

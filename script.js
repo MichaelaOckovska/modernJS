@@ -288,3 +288,5 @@ findSuspect.forEach(({ firstName, surname, birth, licencePlate, address, city })
     Address: ${address}
     City: ${city}`)
 )
+
+/** Ahoj/te. Snazim sa pri nenajdenom vysledku nieco vypisat do console (napr. Nenajdene v databaze). Uz tu nad tym placem azda 2hod a stale sa mi to nepodaril.. Hepl me pls! :D */

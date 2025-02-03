@@ -265,12 +265,12 @@ const suspects = [{
 }]
 
 // const input = prompt(`Please enter the part of the licence plate you are looking for.`)
-const input = '22'
+const input = '22KK'
 
 const findSuspect = suspects.filter((suspect) => suspect.licencePlate.toLowerCase().includes(input))
 
-findSuspect.forEach((suspect) => console.log(
-`Name: ${suspect.firstName}
+findSuspect.forEach((suspect) => console.log(`
+Name: ${suspect.firstName}
 Surname: ${suspect.surname}
 Birth: ${suspect.birth}
 Licence Plate: ${suspect.licencePlate}
@@ -279,7 +279,7 @@ City: ${suspect.city}`)
 )
 
 // Experimentujem s deštrukturalizáciou objektov
-findSuspect.forEach(({ firstName, surname, birth, licencePlate, address, city }) => 
+findSuspect.forEach(({ firstName, surname, birth, licencePlate, address, city }) =>
     console.log(`
     Name: ${firstName}
     Surname: ${surname}
@@ -289,4 +289,19 @@ findSuspect.forEach(({ firstName, surname, birth, licencePlate, address, city })
     City: ${city}`)
 )
 
-/** Ahoj/te. Snazim sa pri nenajdenom vysledku nieco vypisat do console (napr. Nenajdene v databaze). Uz tu nad tym placem azda 2hod a stale sa mi to nepodaril.. Hepl me pls! :D */
+/** Comment reply – vypíš do konzoly upozornenie, ak neboli nájdené žiadne výsledky */
+
+if (findSuspect.length > 0) {
+    findSuspect.forEach((suspect) => {
+        console.log(` NEw
+Name: ${suspect.firstName}
+Surname: ${suspect.surname}
+Birth: ${suspect.birth}
+Licence Plate: ${suspect.licencePlate}
+Address: ${suspect.address}
+City: ${suspect.city}`)
+    }) 
+} else {
+    console.log(`No results found in the database`)
+}
+

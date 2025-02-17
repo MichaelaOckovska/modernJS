@@ -293,15 +293,60 @@ findSuspect.forEach(({ firstName, surname, birth, licencePlate, address, city })
 
 if (findSuspect.length > 0) {
     findSuspect.forEach((suspect) => {
-        console.log(` NEw
+        console.log(` New
 Name: ${suspect.firstName}
 Surname: ${suspect.surname}
 Birth: ${suspect.birth}
 Licence Plate: ${suspect.licencePlate}
 Address: ${suspect.address}
 City: ${suspect.city}`)
-    }) 
+    })
 } else {
     console.log(`No results found in the database`)
 }
 
+
+/** Pole objektov a radenie */
+
+const sortNames = ['Anna', 'Cecília', 'Barbora'] // Obyčajné pole strings
+console.log(sortNames)
+
+sortNames.sort()
+console.log(sortNames)
+
+const sortNumbers = [1, 8, 3, 2, 15, 5] // Obyčajné pole numbers
+sortNumbers.sort()
+console.log(sortNumbers)
+
+
+// Pole objektov – pracujem so suspects
+function sortArray(arraySuspects) {
+    arraySuspects.sort((a, b) => { // Má dva argumenty (a, b), pretože funguje tak, že vezme dva prvky z poľa objektov (v našom prípade podľa surname) a porovnáva ich medzi sebou
+        if (a.surname.toLowerCase() < b.surname.toLowerCase()) {
+            return -1
+        } else if (b.title.toLowerCase() < a.surname.toLowerCase()) {
+            return 1
+        } else {
+            return 0
+        }
+    })
+}
+
+sortArray(suspects)
+console.log(suspects)
+
+// Pole objektov – čísla
+function sortNumbersArray(numbers) {
+    numbers.sort((a, b) => { 
+        if (a < b) {
+            return -1
+        } else if (b < a) {
+            return 1
+        } else {
+            return 0
+        }
+    })
+}
+
+sortNumbersArray(sortNumbers)
+console.log(sortNumbers)

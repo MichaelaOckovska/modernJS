@@ -123,3 +123,23 @@
  * 2. Vytvorte prázdne pole a pomocou cyklu ho naplňte číslami od 0 do 4, vypíšte do konzoly
  */
 
+/** Exercise
+ * Pomocou metódy prompt() zadaj krstné meno podozrelého a do konzoly vypíš všetky jeho údaje (každý údaj na jeden riadok).
+ * Podľa mena nájdi daný objekt a ten vypíš. K nájdeniu objektu použi findIndex()
+ */
+
+/** Generátor náhodných slov z komentárov 
+ * Po kliknutí na tlačidlo vygeneruj náhodné slovo z poľa. Zabezpeč, aby sa to isté slovo nezobrazilo dvakrát za sebou.
+ * Po každom kliknutí na tlačidlo sa zobrazí iné slovo, než bolo zobrazené predtým.
+*/
+
+/** Exercise
+ * Svedok videl z miesta vraždy odchádzať auto. Vie iba to, že ŠPZ obsahovala 22. Úlohou je v uvedenej databáze kriminálnikov
+ * nájsť tých, kt. majú v ŠPZ 22. Všetky ich údaje vypíš do konzoly v tvare:
+ *      - Meno
+ *      - Priezvisko
+ *      - Rok narodanie, atď.
+ * 
+ * Hľadaný výraz získaj pomocou promptu (v tomto prípade 22).
+ */
+

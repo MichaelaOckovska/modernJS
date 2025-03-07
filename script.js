@@ -29,3 +29,38 @@ const myClassQS = document.querySelector('.paragraph')
 
 console.log(`This is selector by ID`, myIdQS)
 console.log(`This is selector by class`, myClassQS)
+
+/** Exercise
+ * Vyber pomocou selektoru element a vypíš ho do konzoly.
+ */
+
+console.log(`
+    Exercise time
+    `)
+
+// Nadpis H1, querySelector()
+const testHeading = document.querySelector('h1')
+console.log(testHeading)
+
+// ID, querySelector()
+const testId = document.querySelector('#byID')
+console.log(testId)
+
+// Všetky nadpisy H2, querySelectorAll(), každý zvlášť
+const testHeading2 = document.querySelectorAll('h2')
+console.log(testHeading2[0])
+console.log(testHeading2[1])
+
+// Všety odstavce s triedou "test", querySelectorAll(), každý zvlášť
+const testParagraph = document.querySelectorAll('.test')
+console.log(testParagraph[0])
+console.log(testParagraph[1])
+
+// Všety odstavce s triednou "test", getElementByClassName(), každý zvlášť
+const paragraphByClass = document.getElementsByClassName('test')
+console.log(`By getElement:`, paragraphByClass[0])
+console.log(`By getElement:`, paragraphByClass[1])
+
+//ID, getElementById()
+const paragraphById = document.getElementById('byID')
+console.log(`By getElement:` ,paragraphById)

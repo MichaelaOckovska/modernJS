@@ -64,3 +64,7 @@ console.log(`By getElement:`, paragraphByClass[1])
 //ID, getElementById()
 const paragraphById = document.getElementById('byID')
 console.log(`By getElement:` ,paragraphById)
+
+
+/** Working with text */
+

@@ -20,6 +20,12 @@ paragraphs.forEach((paragraph) => console.log(paragraph.textContent))
 //     console.log(paragraph.textContent)
 // })
 
+/** Remove elements according to content  */
 
+const tasks = document.querySelectorAll('.task')
 
-
+tasks.forEach((task) => {
+    if (task.textContent.toLowerCase().includes('feed')) {
+        task.remove()
+    } else { console.log(task) }
+})

@@ -143,3 +143,6 @@
  * Hľadaný výraz získaj pomocou promptu (v tomto prípade 22).
  */
 
+/** Exercise
+ * Vyber pomocou selektoru element a vypíš ho do konzoly.
+ */

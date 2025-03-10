@@ -10,5 +10,16 @@ console.log(heading)
 
 heading.textContent = 'Rubber duck JS' // Correcting my title after lecture
 
+const paragraphs = document.querySelectorAll('p')
+
+paragraphs.forEach((paragraph) => console.log(paragraph))
+paragraphs.forEach((paragraph) => console.log(paragraph.textContent))
+
+// paragraphs.forEach((paragraph) => {
+//     paragraph.textContent = `***`
+//     console.log(paragraph.textContent)
+// })
+
+
 
 

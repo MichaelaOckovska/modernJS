@@ -1,5 +1,7 @@
 /** Document Object Model = DOM */
 
+/** Searching  */
+
 // querySelector()
 const heading = document.querySelector('h1')
 console.log(heading)
@@ -64,4 +66,37 @@ console.log(`By getElement:`, paragraphByClass[1])
 //ID, getElementById()
 const paragraphById = document.getElementById('byID')
 console.log(`By getElement:` ,paragraphById)
+
+
+/** How JS works with DOM */
+
+const heading2 = document.querySelector('h1')
+console.log(heading2.textContent) // Vezme text a ignoruje tagy – can prevvent XSS attacks
+console.log(heading2.innerText)   // Vezme text a ignoruje tagy
+console.log(heading2.innerHTML)   // Vezme celé vnútorné HTML aj s tagmi
+
+heading2.textContent = 'New title for my website'
+console.log(heading2)
+
+heading2.textContent = 'Rubber duck JS' // Correcting my title after lecture
+
+const paragraphs = document.querySelectorAll('p')
+
+paragraphs.forEach((paragraph) => console.log(paragraph))
+paragraphs.forEach((paragraph) => console.log(paragraph.textContent))
+
+// paragraphs.forEach((paragraph) => {
+//     paragraph.textContent = `***`
+//     console.log(paragraph.textContent)
+// })
+
+/** Remove elements according to content  */
+
+const tasks = document.querySelectorAll('.task')
+
+tasks.forEach((task) => {
+    if (task.textContent.toLowerCase().includes('feed')) {
+        task.remove()
+    } else { console.log(task) }
+})
 

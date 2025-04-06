@@ -101,6 +101,27 @@ tasks.forEach((task) => {
 })
 
 
-/** Adds and removee elements from the DOM */
+/** Adds new elements to the DOM */
 
-const newParagraph = document.createElement('p')
+const firstParagraph = document.createElement('p') 
+firstParagraph.textContent = `Text of new paragraph`
+
+console.log(firstParagraph.outerHTML)
+
+document.querySelector('header').appendChild(firstParagraph) 
+
+const newDiv = document.createElement('div')
+document.querySelector('header').appendChild(newDiv) // Vytvorili sme prázndy div
+
+const secondParagraph = document.createElement('p')
+secondParagraph.textContent = `Testing paragraph to div`
+newDiv.appendChild(secondParagraph) // Tento div sme naplnili paragrafom
+
+secondParagraph.append(`Append text`)   // Pridá obsah na koniec
+// secondParagraph.textContent = `Test` // Prepíše obsah 
+
+secondParagraph.prepend(`Prepend text`) // Pridá obsah na začiatok
+
+const newSpan = document.createElement('span')
+newSpan.textContent = `NewSpan`
+secondParagraph.prepend(newSpan)

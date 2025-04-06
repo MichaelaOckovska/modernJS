@@ -66,6 +66,8 @@ document.querySelector('main').append(thirdSubtitle)
 
 for (let i = 0; i < myToDos.length; i++) {
     const paragraph = document.createElement('p')
-    paragraph.textContent = myToDos[i].text
-    document.querySelector('main').appendChild(paragraph)
+    if (myToDos[i].completion === false) {
+        paragraph.textContent = myToDos[i].text
+        document.querySelector('main').appendChild(paragraph)
+    }
 }

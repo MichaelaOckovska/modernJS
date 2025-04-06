@@ -100,3 +100,7 @@ tasks.forEach((task) => {
     } else { console.log(task) }
 })
 
+
+/** Adds and removee elements from the DOM */
+
+const newParagraph = document.createElement('p')

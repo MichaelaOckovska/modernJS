@@ -24,3 +24,8 @@ const tasksLeft = myToDos.filter((oneTask) => {
 console.log(tasksLeft)
 console.log(tasksLeft.length)
 
+const paragraph = document.createElement('p')
+paragraph.textContent = `Remaining tasks: ${tasksLeft.length}`
+
+document.querySelector('main').appendChild(paragraph) // Pridaj dcérsky prvok
+

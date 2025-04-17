@@ -27,7 +27,7 @@ console.log(`3. ${toDO[2]}`)
 console.log(`4. ${toDO[3]}`)
 console.log(``)
 
-toDO.forEach( (task, n) => console.log(`${n + 1}. ${task}`))
+toDO.forEach((task, n) => console.log(`${n + 1}. ${task}`))
 
 
 /** CYKLUS FOR – univerzálnejší ako forEach */

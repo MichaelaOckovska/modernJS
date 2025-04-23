@@ -1,3 +1,5 @@
+/** To Do App */
+
 const myToDos = [{
     text: 'Take out trash',
     completion: false

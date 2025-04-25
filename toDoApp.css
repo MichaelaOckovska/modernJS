@@ -2,7 +2,7 @@ h1 {
     color: rgb(49, 6, 129);
 }
 
-a {
+.myBtn {
     text-decoration: none;
     font-size: 25px;
     border: 2px solid black;
@@ -13,6 +13,6 @@ a {
     letter-spacing: 1.5px;
 }
 
-a:hover {
+.myBtn:hover {
     background: rgb(72, 42, 128);
 }

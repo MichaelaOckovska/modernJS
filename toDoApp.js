@@ -56,3 +56,19 @@ document.querySelector('.myBtn').addEventListener('click', (event) => {
   console.log('Click succeed')
 })
 
+
+/** Výber selectorov */
+
+const buttons = document.querySelectorAll('button')
+
+console.log(buttons)
+console.log(buttons[0])
+console.log(buttons[1])
+
+buttons[0].addEventListener('click', (event) => {
+  console.log(`Click on first button.`)
+})
+
+buttons[1].addEventListener('click', (event) => {
+  console.log(`Click on second button.`)
+})

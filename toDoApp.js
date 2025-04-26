@@ -62,7 +62,7 @@ document.querySelector('.myBtn').addEventListener('click', (event) => {
 const buttons = document.querySelectorAll('button')
 
 console.log(buttons)
-console.log(buttons[0])
+console.log(buttons[0]) // Riziko, že sa zmení poradie elementov (tlačidiel)
 console.log(buttons[1])
 
 buttons[0].addEventListener('click', (event) => {
@@ -71,4 +71,15 @@ buttons[0].addEventListener('click', (event) => {
 
 buttons[1].addEventListener('click', (event) => {
   console.log(`Click on second button.`)
+})
+
+const firstBtn = document.querySelector('.first-btn')
+const secondBtn = document.querySelector('.second-btn')
+
+firstBtn.addEventListener('click', (event) => {
+  console.log(`Click on first buttonClass.`)
+})
+
+secondBtn.addEventListener('click', (event) => {
+  console.log(`Click on second buttonClass.`)
 })

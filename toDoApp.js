@@ -47,8 +47,8 @@ document.querySelector('main').append(thirdSubtitle)
 for (let i = 0; i < myToDos.length; i++) {
   const paragraph = document.createElement('p')
   if (myToDos[i].completion === false) {
-      paragraph.textContent = myToDos[i].text
-      document.querySelector('main').appendChild(paragraph)
+    paragraph.textContent = myToDos[i].text
+    document.querySelector('main').appendChild(paragraph)
   }
 }
 
@@ -57,21 +57,7 @@ document.querySelector('.myBtn').addEventListener('click', (event) => {
 })
 
 
-/** Výber selectorov */
-
-const buttons = document.querySelectorAll('button')
-
-console.log(buttons)
-console.log(buttons[0]) // Riziko, že sa zmení poradie elementov (tlačidiel)
-console.log(buttons[1])
-
-buttons[0].addEventListener('click', (event) => {
-  console.log(`Click on first button.`)
-})
-
-buttons[1].addEventListener('click', (event) => {
-  console.log(`Click on second button.`)
-})
+/** Výber selektorov */
 
 const firstBtn = document.querySelector('.first-btn')
 const secondBtn = document.querySelector('.second-btn')
@@ -83,3 +69,19 @@ firstBtn.addEventListener('click', (event) => {
 secondBtn.addEventListener('click', (event) => {
   console.log(`Click on second buttonClass.`)
 })
+
+
+/** EventListener – input */
+
+const input = document.querySelector('#input-text')
+
+input.addEventListener('change', (event) => { // Musím kliknúť niekam inam aby zmenu zaregistroval
+  console.log(`The Boy who Lived!`)
+  console.log(event)
+  console.log(event.target.value)
+})
+
+input.addEventListener('input', (event) => { // Zaregistruje každú zmenu (doslova po písmenku)
+  console.log(event.target.value)
+})
+

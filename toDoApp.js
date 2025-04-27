@@ -85,3 +85,6 @@ input.addEventListener('input', (event) => { // Zaregistruje každú zmenu (dosl
   console.log(event.target.value)
 })
 
+
+
+

@@ -65,3 +65,18 @@ firstBtn.addEventListener('click', (event) => {
 secondBtn.addEventListener('click', (event) => {
   console.log(`Click on second buttonClass.`)
 })
+
+
+/** EventListener – input */
+
+const input = document.querySelector('#input-text')
+
+input.addEventListener('change', (event) => { // Musím kliknúť niekam inam aby zmenu zaregistroval
+  console.log(`The Boy who Lived!`)
+  console.log(event)
+  console.log(event.target.value)
+})
+
+input.addEventListener('input', (event) => { // Zaregistruje každú zmenu (doslova po písmenku)
+  console.log(event.target.value)
+})

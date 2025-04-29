@@ -7,3 +7,7 @@
  * that will change the text to "Click below". The result will be that if you click on h1, this will change
  * the text and you need to click on heading h2 etc.
  */
+
+/** Exercise
+ * I have a database of criminals, I need to pull data from it based on a License Plate search.
+ */

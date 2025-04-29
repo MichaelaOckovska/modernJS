@@ -69,7 +69,7 @@ const suspectsDatabase = [{
 /** Moje riešenie – s pomocou AI */
 
 // Funkcia na vypísanie filtrovaných zločincov
-const renderCriminals = (criminals, searchText) => { 
+function renderCriminals(criminals, searchText) {
     const container = document.querySelector('#idCriminal')
     container.innerHTML = "" // Vyčistí staré výsledky predtým, ako tam vložíme nové
 

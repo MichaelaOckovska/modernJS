@@ -1,6 +1,8 @@
-/** Exercise */
+/** Exercise
+ * Mám databázu zločincov, potrebujem z nej vytiahnuť údaje na základe vyhľadávania Licence Plate.
+ */
 
-const criminals = [{
+const suspectsDatabase = [{
     firstName: 'Martin',
     surname: 'Zelený',
     birth: 1985,
@@ -23,44 +25,85 @@ const criminals = [{
     city: 'České Budějovice'
 }]
 
-// Uložiť data z "input"
+// // Uložiť data z "input"
 
-let filters = {
-    searchText: ""
-}
+// let filters = {
+//     searchText: ""
+// }
 
-// Filtrovanie
+// // Filtrovanie
 
-const renderCriminals = (wantedCriminals, tryToFind) => {
-    let arrayResult = wantedCriminals.filter((oneSuspect) => {
-        return oneSuspect.licencePlate.toLowerCase().includes(tryToFind.searchText.toLowerCase())
-    })
+// const renderCriminals = (wantedCriminals, tryToFind) => {
+//     let arrayResult = wantedCriminals.filter((oneSuspect) => {
+//         return oneSuspect.licencePlate.toLowerCase().includes(tryToFind.searchText.toLowerCase())
+//     })
 
-    console.log(arrayResult)
+//     console.log(arrayResult)
 
-    document.querySelector('#idCriminal').innerHTML = ""
+//     document.querySelector('#idCriminal').innerHTML = ""
 
-    arrayResult.forEach((oneSuspect) => {
-        let paragraph = document.createElement('p')
-        // paragraph.textContent = `First Name: ${oneSuspect.firstName}, Surname: ${oneSuspect.surname}`
+//     arrayResult.forEach((oneSuspect) => {
+//         let paragraph = document.createElement('p')
+//         // paragraph.textContent = `First Name: ${oneSuspect.firstName}, Surname: ${oneSuspect.surname}`
+//         paragraph.innerHTML = `
+//         First Name: ${oneSuspect.firstName}, <br> 
+//         Surname: ${oneSuspect.surname}, <br> 
+//         Birth: ${oneSuspect.birth}, <br>
+//         Licence Plate: ${oneSuspect.licencePlate}, <br>
+//         Address: ${oneSuspect.address}, <br>
+//         City: ${oneSuspect.city}, <br>
+//         `
+
+//         document.querySelector('#idCriminal').appendChild(paragraph)
+//     })
+// }
+
+// // Načítať dáta z "input"
+
+// let licencePlate = document.querySelector('#licence-plate')
+// licencePlate.addEventListener('input', (event) => {
+//     filters.searchText = event.target.value
+//     renderCriminals(suspects, filters) // Volanie funkcie s parametrami
+
+// })
+
+
+/** Moje riešenie – s pomocou AI */
+
+// Funkcia na vypísanie filtrovaných zločincov
+const renderCriminals = (criminals, searchText) => { 
+    const container = document.querySelector('#idCriminal')
+    container.innerHTML = "" // Vyčistí staré výsledky predtým, ako tam vložíme nové
+
+    const filtered = criminals.filter(criminal =>
+        criminal.licencePlate.toLowerCase().includes(searchText.toLowerCase())
+    )
+
+    filtered.forEach(criminal => {
+        const paragraph = document.createElement('p')
         paragraph.innerHTML = `
-        First Name: ${oneSuspect.firstName}, <br> 
-        Surname: ${oneSuspect.surname}, <br> 
-        Birth: ${oneSuspect.birth}, <br>
-        Licence Plate: ${oneSuspect.licencePlate}, <br>
-        Address: ${oneSuspect.address}, <br>
-        City: ${oneSuspect.city}, <br>
-        `
+        First Name: ${criminal.firstName}<br>
+        Surname: ${criminal.surname}<br>
+        Birth: ${criminal.birth}<br>
+        Licence Plate: ${criminal.licencePlate}<br>
+        Address: ${criminal.address}<br>
+        City: ${criminal.city}<br>
+        `.trim() // Odstráni whitespace
 
-        document.querySelector('#idCriminal').appendChild(paragraph)
+        container.appendChild(paragraph)
     })
+
+    if (filtered.length === 0) {
+        const noResult = document.createElement('p')
+        noResult.textContent = "No results found."
+        container.appendChild(noResult)
+    }
 }
 
-// Načítať dáta z "input"
+// Event listener na input
+const licencePlateInput = document.querySelector('#licence-plate')
 
-let licencePlate = document.querySelector('#licence-plate')
-licencePlate.addEventListener('input', (event) => {
-    filters.searchText = event.target.value
-    renderCriminals(criminals, filters) // Volanie funkcie s parametrami
-
+licencePlateInput.addEventListener('input', (event) => {
+    const searchText = event.target.value
+    renderCriminals(suspectsDatabase, searchText)
 })

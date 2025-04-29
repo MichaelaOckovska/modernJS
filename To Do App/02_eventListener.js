@@ -9,6 +9,10 @@ document.querySelector('a').addEventListener('click', (event) => {
   event.target.textContent = 'It was clicked'
 })
 
+document.querySelector('.myBtn').addEventListener('click', (event) => {
+  console.log('Click succeed')
+})
+
 
 /** Exercise
  * In index.html create a heading h1, h2 and h3. In all of them will be any text. For all headings, set
@@ -54,6 +58,7 @@ buttons[0].addEventListener('click', (event) => {
 buttons[1].addEventListener('click', (event) => {
   console.log(`Click on second button.`)
 })
+
 
 const firstBtn = document.querySelector('.first-btn')
 const secondBtn = document.querySelector('.second-btn')

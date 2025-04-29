@@ -38,8 +38,6 @@ const suspectsDatabase = [{
 //         return oneSuspect.licencePlate.toLowerCase().includes(tryToFind.searchText.toLowerCase())
 //     })
 
-//     console.log(arrayResult)
-
 //     document.querySelector('#idCriminal').innerHTML = ""
 
 //     arrayResult.forEach((oneSuspect) => {

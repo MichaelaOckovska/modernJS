@@ -17,16 +17,16 @@ const tasksDatabase = [{
   completion: false
 },]
 
-const tasksLeft = tasksDatabase.filter((oneTask) => {
-  // return oneTask.completion // Vráti čo je true (completion === true)
-  // return oneTask.completion === false
-  return !oneTask.completion // Pretože výkričník je negovanie
-})
+// const tasksLeft = tasksDatabase.filter((oneTask) => {
+//   // return oneTask.completion // Vráti čo je true (completion === true)
+//   // return oneTask.completion === false
+//   return !oneTask.completion // Pretože výkričník je negovanie
+// })
 
-const paragraph = document.createElement('p')
-paragraph.textContent = `Remaining tasks: ${tasksLeft.length}`
+// const paragraph = document.createElement('p')
+// paragraph.textContent = `Remaining tasks: ${tasksLeft.length}`
 
-document.querySelector('main').appendChild(paragraph)
+// document.querySelector('main').appendChild(paragraph)
 
 for (let i = 0; i < tasksDatabase.length; i++) {
   const paragraph = document.createElement('p')
@@ -34,22 +34,39 @@ for (let i = 0; i < tasksDatabase.length; i++) {
   document.querySelector('#tasks-found').appendChild(paragraph)
 }
 
+let tasksLeft = tasksDatabase.filter((oneTask) => !oneTask.completion)
+const tasksLeftContainer = document.querySelector('#tasks-left')
+tasksLeftContainer.innerHTML = ""
+
+const tasksLeftParagraph = document.createElement('p')
+tasksLeftParagraph.textContent = `Remaining tasks: ${tasksLeft.length}`
+
+tasksLeftContainer.appendChild(tasksLeftParagraph)
+
 const filters = {
   searchText: ""
 }
 
 function renderFilteredTasks(allTasks, filters) {
-  const container = document.querySelector('#tasks-found')
-  container.innerHTML = ""
-
   const filteredTasks = allTasks.filter(task => task.text.toLowerCase().includes(filters.searchText.toLowerCase()))
+  const taskContainer = document.querySelector('#tasks-found')
+  taskContainer.innerHTML = ""
 
   filteredTasks.forEach(task => {
     const newParagraph = document.createElement('p')
-    newParagraph.textContent = task.text.trim() 
+    newParagraph.textContent = task.text.trim()
 
-    container.appendChild(newParagraph)
+    taskContainer.appendChild(newParagraph)
   })
+
+  tasksLeft = filteredTasks.filter((oneTask) => !oneTask.completion)
+  const tasksLeftContainer = document.querySelector('#tasks-left')
+  tasksLeftContainer.innerHTML = ""
+
+  const tasksLeftParagraph = document.createElement('p')
+  tasksLeftParagraph.textContent = `Remaining tasks: ${tasksLeft.length}`
+
+  tasksLeftContainer.appendChild(tasksLeftParagraph)
 }
 
 const taskInputField = document.querySelector('#input-text') // Chytenie input políčka
@@ -58,6 +75,3 @@ taskInputField.addEventListener('input', (event) => {
   filters.searchText = event.target.value
   renderFilteredTasks(tasksDatabase, filters)
 })
-
-/*****************************************************************/
-

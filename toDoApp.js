@@ -34,6 +34,8 @@ for (let i = 0; i < tasksDatabase.length; i++) {
   document.querySelector('#tasks-found').appendChild(paragraph)
 }
 
+/*****************************************************************/
+
 /** Exercise
  * Searching in the task list – similar to previous exercise
  */

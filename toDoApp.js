@@ -34,36 +34,6 @@ for (let i = 0; i < tasksDatabase.length; i++) {
   document.querySelector('#tasks-found').appendChild(paragraph)
 }
 
-/*****************************************************************/
-
-/** Exercise
- * Searching in the task list – similar to previous exercise
- */
-
-// function filterTask(tasks, searchText) {
-//   const container = document.querySelector('#tasks-found')
-//   container.innerHTML = ""
-
-//   const filteredTasks = tasks.filter(task => task.text.toLowerCase().includes(searchText.toLowerCase()))
-
-//   filteredTasks.forEach(task => {
-//     const newParagraph = document.createElement('p')
-//     newParagraph.textContent = task.text.trim()
-
-//     container.appendChild(newParagraph)
-//   })
-// }
-
-// const taskNameInput = document.querySelector('#input-text') // Chytenie input políčka
-
-// taskNameInput.addEventListener('input', (event) => {
-//   const searchText = event.target.value
-//   filterTask(tasksDatabase, searchText)
-// })
-
-
-/** Verzia s objektom filters */
-
 const filters = {
   searchText: ""
 }
@@ -88,3 +58,6 @@ taskInputField.addEventListener('input', (event) => {
   filters.searchText = event.target.value
   renderFilteredTasks(tasksDatabase, filters)
 })
+
+/*****************************************************************/
+

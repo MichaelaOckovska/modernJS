@@ -1,3 +1,5 @@
+/** Working with FORM */
+
 document.querySelector('#test-form').addEventListener('submit', (event) => {
     // Vypnúť východzie nastavenie formulára
     event.preventDefault()
@@ -11,4 +13,8 @@ document.querySelector('#test-form').addEventListener('submit', (event) => {
     paragraph.textContent = inputContent
 
     document.querySelector('#form-output').appendChild(paragraph)
+
+    // Po odoslaní vymazať obsah inputu
+    event.target.elements.firstName.value = ""
 })
+

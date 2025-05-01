@@ -34,6 +34,10 @@ for (let i = 0; i < tasksDatabase.length; i++) {
   document.querySelector('#tasks-found').appendChild(paragraph)
 }
 
+const filters = {
+  searchText: ""
+}
+
 let tasksLeft = tasksDatabase.filter((oneTask) => !oneTask.completion)
 const tasksLeftContainer = document.querySelector('#tasks-left')
 tasksLeftContainer.innerHTML = ""
@@ -43,19 +47,17 @@ tasksLeftParagraph.textContent = `Remaining tasks: ${tasksLeft.length}`
 
 tasksLeftContainer.appendChild(tasksLeftParagraph)
 
-const filters = {
-  searchText: ""
-}
-
 function renderFilteredTasks(allTasks, filters) {
-  const filteredTasks = allTasks.filter(task => task.text.toLowerCase().includes(filters.searchText.toLowerCase()))
+  const filteredTasks = allTasks.filter(task =>
+    task.text.toLowerCase().includes(filters.searchText.toLowerCase())
+  )
+
   const taskContainer = document.querySelector('#tasks-found')
   taskContainer.innerHTML = ""
 
   filteredTasks.forEach(task => {
     const newParagraph = document.createElement('p')
     newParagraph.textContent = task.text.trim()
-
     taskContainer.appendChild(newParagraph)
   })
 

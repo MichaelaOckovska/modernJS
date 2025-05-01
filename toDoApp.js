@@ -73,3 +73,5 @@ taskInputField.addEventListener('input', (event) => {
 })
 
 renderFilteredTasks(myTasks, filters) // Po načítaní stránky hneď vypíšeme všetky úlohy aj počet zostávajúcich
+
+/** */

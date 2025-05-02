@@ -49,3 +49,10 @@ document.querySelector('#test-form').addEventListener('submit', (event) => {
     event.target.reset()
 })
 
+
+/** Checkbox */
+
+const myCheckBox = document.querySelector('#my-check-box')
+myCheckBox.addEventListener('change', (event) => {
+    event.target.checked
+})

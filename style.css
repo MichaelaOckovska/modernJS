@@ -3,3 +3,14 @@ h1 {
     font-size: 25px;
     color: rgb(19, 90, 51);
 }
+
+#test-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem; /* Rozostup medzi inputmi */
+    max-width: 300px; /* Šírka formulára */
+}
+
+#test-submit-btn {
+    max-width: 100px;
+}

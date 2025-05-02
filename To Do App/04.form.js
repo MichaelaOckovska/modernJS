@@ -18,3 +18,34 @@ document.querySelector('#test-form').addEventListener('submit', (event) => {
     event.target.elements.firstName.value = ""
 })
 
+/** Exercise
+ * Create any three fields – first name, last name, email
+ * Press send – the fields are emptied and the data is written down in paragraphs
+ */
+
+// Pri menších formulároch môžem ísť cez querySelector()
+// const inputContent = {
+//     fistName: document.querySelector('[name="firstName"]'),
+//     lastName: document.querySelector('[name="lastName"]'),
+//     email: document.querySelector('[name="email"]'),
+// }
+
+document.querySelector('#test-form').addEventListener('submit', (event) => {
+    event.preventDefault()
+
+    const formElements = event.target.elements
+    const formData = {
+        firstName: formElements.firstName.value,
+        lastName: formElements.lastName.value,
+        email: formElements.email.value,
+    }
+
+    Object.values(formData).forEach((input) => {
+        const paragraph = document.createElement('p')
+        paragraph.textContent = `${input}`
+        document.querySelector('#form-output').appendChild(paragraph)
+    })
+
+    event.target.reset()
+})
+

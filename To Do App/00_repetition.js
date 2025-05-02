@@ -15,3 +15,8 @@
 /** Exercise
  * Searching in the task list – similar to previous exercise
  */
+
+/** Exercise
+ * Create any three fields – first name, last name, email
+ * Press send – the fields are emptied and the data is written down in paragraphs
+ */

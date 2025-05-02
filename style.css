@@ -4,13 +4,13 @@ h1 {
     color: rgb(19, 90, 51);
 }
 
-#test-form {
+/* #test-form {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem; /* Rozostup medzi inputmi */
-    max-width: 300px; /* Šírka formulára */
+    gap: 0.5rem; 
+    max-width: 300px; 
 }
 
 #test-submit-btn {
     max-width: 100px;
-}
+} */

@@ -1,73 +1,78 @@
-const myToDos = [{
-    text: 'Take out trash',
-    completion: false
+/** To Do App */
+
+const myTasks = [{
+  text: 'Take out trash',
+  completion: false
 }, {
-    text: 'Buy groceries',
-    completion: false
+  text: 'Buy groceries',
+  completion: false
 }, {
-    text: 'Cleaning',
-    completion: true
+  text: 'Cleaning',
+  completion: true
 }, {
-    text: 'Feed the dog',
-    completion: true
+  text: 'Feed the dog',
+  completion: true
 }, {
-    text: 'Feed the cat',
-    completion: false
+  text: 'Feed the cat',
+  completion: false
 },]
 
-const tasksLeft = myToDos.filter((oneTask) => {
-    // return oneTask.completion // Vráti čo je true (completion === true)
-    // return oneTask.completion === false
-    return !oneTask.completion // Pretože výkričník je negovanie
-})
+// const tasksLeft = myTasks.filter((oneTask) => {
+//   // return oneTask.completion // Vráti čo je true (completion === true)
+//   // return oneTask.completion === false
+//   return !oneTask.completion // Pretože výkričník je negovanie
+// })
 
-console.log(tasksLeft)
-console.log(tasksLeft.length)
+// const paragraph = document.createElement('p')
+// paragraph.textContent = `Remaining tasks: ${tasksLeft.length}`
 
-const paragraph = document.createElement('p')
-paragraph.textContent = `Remaining tasks: ${tasksLeft.length}`
+// document.querySelector('main').appendChild(paragraph)
 
-document.querySelector('main').appendChild(paragraph)
-
-
-/** Exercise – List all tasks 
- * Bonus – List only incomplete tasks
-*/
-
-const firstSubtitle = document.createElement('h3')
-firstSubtitle.textContent = `My solution`
-document.querySelector('main').append(firstSubtitle)
-
-myToDos.forEach(task => {
-    const taskEl = document.createElement('p')
-    taskEl.textContent = task.text
-    document.querySelector('main').appendChild(taskEl)
-})
-
-/** Solution from video */
-
-const secondSubtitle = document.createElement('h3')
-secondSubtitle.textContent = `Solution from video`
-document.querySelector('main').append(secondSubtitle)
-
-for (let i = 0; i < 4; i++) { } // Pamätaj, JS počíta od nuly
-
-for (let i = 0; i < myToDos.length; i++) {
-    const paragraph = document.createElement('p')
-    paragraph.textContent = myToDos[i].text
-    document.querySelector('main').appendChild(paragraph)
+for (let i = 0; i < myTasks.length; i++) {
+  const paragraph = document.createElement('p')
+  paragraph.textContent = myTasks[i].text
+  document.querySelector('#tasks-found').appendChild(paragraph)
 }
 
-/** List just incomplete tasks */
-
-const thirdSubtitle = document.createElement('h3')
-thirdSubtitle.textContent = `Incomplete tasks`
-document.querySelector('main').append(thirdSubtitle)
-
-for (let i = 0; i < myToDos.length; i++) {
-    const paragraph = document.createElement('p')
-    if (myToDos[i].completion === false) {
-        paragraph.textContent = myToDos[i].text
-        document.querySelector('main').appendChild(paragraph)
-    }
+const filters = {
+  searchText: ""
 }
+
+function renderRemainingTasks(tasksDatabase) { /** Vypísanie nesplnených úloh */
+  const tasksLeft = tasksDatabase.filter(task => !task.completion)
+  const tasksLeftContainer = document.querySelector('#tasks-left')
+  tasksLeftContainer.innerHTML = ""
+
+  const remainingInfo = document.createElement('p')
+  remainingInfo.textContent = `Remaining tasks: ${tasksLeft.length}`
+  tasksLeftContainer.appendChild(remainingInfo)
+}
+
+function renderFilteredTasks(tasksDatabase, filters) { /** Filtrovanie v úlohách podľa textu */
+  const filteredTasks = tasksDatabase.filter(task =>
+    task.text.toLowerCase().includes(filters.searchText.toLowerCase())
+  )
+
+  const taskContainer = document.querySelector('#tasks-found')
+  taskContainer.innerHTML = ""
+
+  filteredTasks.forEach(task => {
+    const newParagraph = document.createElement('p')
+    newParagraph.textContent = task.text.trim()
+    taskContainer.appendChild(newParagraph)
+  })
+
+  renderRemainingTasks(myTasks)
+}
+
+const taskInputField = document.querySelector('#input-text') // Chytenie input políčka
+
+taskInputField.addEventListener('input', (event) => {
+  filters.searchText = event.target.value // Plníme searchText vo objekte "filters"
+  renderFilteredTasks(myTasks, filters)
+})
+
+renderFilteredTasks(myTasks, filters) // Po načítaní stránky hneď vypíšeme všetky úlohy aj počet zostávajúcich
+
+/** */
+

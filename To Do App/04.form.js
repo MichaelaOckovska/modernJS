@@ -46,7 +46,7 @@ document.querySelector('#test-form').addEventListener('submit', (event) => {
         document.querySelector('#form-output').appendChild(paragraph)
     })
 
-    event.target.reset()
+    event.target.reset() // Ak je k niečomu preddefinovaná funkcia, je lepšie používať tú
 })
 
 

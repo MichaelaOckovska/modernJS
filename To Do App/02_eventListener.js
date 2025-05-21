@@ -1,4 +1,4 @@
-/** EventListener */
+/** EventListener – docs "mdn element" */
 
 document.querySelector('a').addEventListener('click', (event) => {
   console.log(`He is alive`)

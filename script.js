@@ -1,36 +1,18 @@
-/** Dropdown menu – select, change, option */
+/** Ako meniť CSS pomocou JS */
 
-const select = document.querySelector('#selectID')
+const heading = document.querySelector('h1')
+console.log(heading)
 
-select.addEventListener('change', (event) => {
-    console.log(event.target.value)
+heading.addEventListener('mouseenter', (event) => {
+    heading.style.color = 'green' // Číslo nemusíme dávať do úvodzoviek
 })
 
-
-/** Events – mouseenter, mouseleave, keydown, keypress, keyup */
-
-const buttonEvent = document.querySelector('#btn')
-
-buttonEvent.addEventListener('mouseenter', (event) => {
-    console.log('mouseenter')
+heading.addEventListener('mouseleave', (event) => {
+    heading.style.color = '' 
 })
 
-buttonEvent.addEventListener('mouseleave', (event) => {
-    console.log('mouseleave')
-})
+heading.style.fontSize = '30px' // Musí byť string, pretože sú tam i jednotky "px"
 
-/** Keyboard eventy nemá */
+// heading.style.display = 'none'
 
-const allBody = document.querySelector('body')
-
-// allBody.addEventListener('keydown', (event) => { 
-//     console.log('keydown')
-// })
-
-// allBody.addEventListener('keypress', (event) => { 
-//     console.log('keypress')
-// })
-
-allBody.addEventListener('keyup', (event) => {
-    console.log(event.key)
-})
+heading.style.fontWeight = 400 // Bold sa udáva v stovkách (100, 200, atď.)

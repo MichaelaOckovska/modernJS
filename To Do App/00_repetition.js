@@ -26,3 +26,6 @@
  */
 
 /** Exercise – Moving square with arrow keys */
+
+/** Exercise – Enter a color in the box and change the background */
+

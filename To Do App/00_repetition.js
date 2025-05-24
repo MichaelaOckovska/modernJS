@@ -20,3 +20,9 @@
  * Create any three fields – first name, last name, email
  * Press send – the fields are emptied and the data is written down in paragraphs
  */
+
+/** Exercise 
+ * Create a simple todo application, where you type a task into the input and it will be printed down with a checkbox.
+ */
+
+/** Exercise – Moving square with arrow keys */

@@ -65,4 +65,3 @@ colorForm.addEventListener('submit', (e) => {
     myBody.style.backgroundColor = inputColor
     e.target.reset()
 })
-

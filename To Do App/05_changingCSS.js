@@ -46,7 +46,7 @@ document.querySelector('body').addEventListener('keydown', (e) => { // Už som t
 
 /** GetComputedStyle a vytiahnutie vlastností CSS */
 
-const heading = document.querySelector('h1')
+// const heading = document.querySelector('h1')
 
 const style = getComputedStyle(heading)
 console.log(style.color) // Vypíše v rgb notácii

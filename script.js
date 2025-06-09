@@ -23,11 +23,22 @@ window.addEventListener('scroll', (e) => {
 
 /** Plynulé skrolovanie a scrollTo */
 
-window.scrollTo(0, 300) // Potrebujem súradnice na osiach x a y, tento zápis ma posunie nižšie po osy y
+/** Pracovali sme v konzoly v prehliadači: 
+window.scrollTo(0, 300) // Potrebujem súradnice na osiach x a y, tento zápis ma posunie nižšie po osi y
 
 window.scrollTo({ // Môžem zapísať aj objekt
     top: 300,
     left: 100,
     behavior: 'smooth'
-}) 
+}) */
 
+const firstItemMenu = document.querySelector('.first-item-menu')
+const scrollGoal = document.querySelector('.scroll-goal').offsetTop // Vypíše to pozíciu elementu po osi y, pozor - je to číselná hodnota
+
+firstItemMenu.addEventListener('click', (e) => {
+    console.log(scrollGoal)
+    window.scrollTo({
+        top: scrollGoal,
+        behavior: 'smooth'
+    })
+})

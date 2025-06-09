@@ -1,6 +1,6 @@
 body {
     background-color: white;
-    width: 800px;
+    /** width: 800px; */
     padding: 0px 70px;
 }
 
@@ -55,4 +55,29 @@ h1 {
     right: 20px;
     bottom: 50px;
     display: none;
+}
+
+nav ul {
+    padding: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    list-style-type: none;
+    /** list-style-type sú automatické bodky v zozname */ 
+}
+
+nav li a {
+    text-decoration: none;
+    /** Ruší podtrhnutie */
+    font-size: 20px;
+    border: 2p solid #ae9959;
+    padding: 5px 15px;
+    border-radius: 100px;
+    color: white;
+    background: #75673c;
+}
+
+nav li a:hover {
+    background: #ae9959;
 }

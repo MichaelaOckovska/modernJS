@@ -50,7 +50,7 @@ console.log(`Hi, my name is ${userFromLS.firstName} and was ${userFromLS.age} wh
 
 /** Ukladanie dát z poľa do LocalStorage */
 
-let myArray = []
+const myArray = JSON.parse(localStorage.getItem('characters')) || []
 
 const myForm = document.querySelector('#localStorage-frm')
 myForm.addEventListener('submit', (e) => {
@@ -68,8 +68,8 @@ myForm.addEventListener('submit', (e) => {
 
     // Pokračujeme stále v tejto funkcii, aby sa všetko vykonalo po akcii "submit"
 
-    // const myArrayFromLS = localStorage.getItem('characters')
-    // const myArrayFromLSJson = JSON.parse(myArrayFromLS)
+    // const myArrayFromLS = localStorage.getItem('characters') // Vytiahnutie z localStorage
+    // const myArrayFromLSJson = JSON.parse(myArrayFromLS) // Prechod cez JSON
 
     const myArrayFromLS = JSON.parse(localStorage.getItem('characters'))
 
@@ -77,5 +77,14 @@ myForm.addEventListener('submit', (e) => {
     paragraph.textContent = myArrayFromLS[myArrayFromLS.length - 1]
 
     document.querySelector('#characters-div').appendChild(paragraph)
-
 })
+
+const parsedArray = JSON.parse(localStorage.getItem('characters'))
+parsedArray.forEach((character) => {
+    const paragraph = document.createElement('p')
+    paragraph.textContent = character
+    
+    document.querySelector('#characters-div').appendChild(paragraph)
+})
+
+

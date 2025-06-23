@@ -50,11 +50,13 @@ console.log(`Hi, my name is ${userFromLS.firstName} and was ${userFromLS.age} wh
 
 /** Ukladanie dát z poľa do LocalStorage */
 
-const myArray = []
+let myArray = []
 
 const myForm = document.querySelector('#localStorage-frm')
 myForm.addEventListener('submit', (e) => {
     e.preventDefault() // Vypnutie automatického načítania stránky, pamätaj na to 
+
+    console.log(`Klikla som`)
 
     const firstName = e.target.elements.firstName.value
     myArray.push(firstName)
@@ -63,4 +65,13 @@ myForm.addEventListener('submit', (e) => {
     localStorage.setItem('characters', myArrayToLS)
 
     e.target.reset()
+
+    /** Vyťahovanie dát z LocalStorage */ 
+
+    // Pokračujeme stále v tejto funkcii, aby sa všetko vykonalo po akcii "submit"
+    
+    const myArrayFromLS = localStorage.getItem('characters')
+    console.log(myArrayFromLS)
+
+
 })

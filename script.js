@@ -56,8 +56,6 @@ const myForm = document.querySelector('#localStorage-frm')
 myForm.addEventListener('submit', (e) => {
     e.preventDefault() // Vypnutie automatického načítania stránky, pamätaj na to 
 
-    console.log(`Klikla som`)
-
     const firstName = e.target.elements.firstName.value
     myArray.push(firstName)
 
@@ -66,12 +64,18 @@ myForm.addEventListener('submit', (e) => {
 
     e.target.reset()
 
-    /** Vyťahovanie dát z LocalStorage */ 
+    /** Vyťahovanie dát z LocalStorage */
 
     // Pokračujeme stále v tejto funkcii, aby sa všetko vykonalo po akcii "submit"
-    
-    const myArrayFromLS = localStorage.getItem('characters')
-    console.log(myArrayFromLS)
 
+    // const myArrayFromLS = localStorage.getItem('characters')
+    // const myArrayFromLSJson = JSON.parse(myArrayFromLS)
+
+    const myArrayFromLS = JSON.parse(localStorage.getItem('characters'))
+
+    const paragraph = document.createElement('p')
+    paragraph.textContent = myArrayFromLS[myArrayFromLS.length - 1]
+
+    document.querySelector('#characters-div').appendChild(paragraph)
 
 })

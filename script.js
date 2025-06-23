@@ -48,3 +48,19 @@ console.log(userFromLS)
 console.log(`Hi, my name is ${userFromLS.firstName} and was ${userFromLS.age} when i killed Voldemort.`)
 
 
+/** Ukladanie dát z poľa do LocalStorage */
+
+const myArray = []
+
+const myForm = document.querySelector('#localStorage-frm')
+myForm.addEventListener('submit', (e) => {
+    e.preventDefault() // Vypnutie automatického načítania stránky, pamätaj na to 
+
+    const firstName = e.target.elements.firstName.value
+    myArray.push(firstName)
+
+    const myArrayToLS = JSON.stringify(myArray)
+    localStorage.setItem('characters', myArrayToLS)
+
+    e.target.reset()
+})

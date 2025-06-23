@@ -46,3 +46,5 @@ const userFromLS = JSON.parse(localStorage.getItem('user'))
 console.log(userFromLS)
 
 console.log(`Hi, my name is ${userFromLS.firstName} and was ${userFromLS.age} when i killed Voldemort.`)
+
+

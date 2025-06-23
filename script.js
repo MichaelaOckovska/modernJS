@@ -17,7 +17,7 @@ console.log(localStorage.getItem('firstName'))
 // localStorage.removeItem('firstName')
 
 /** Deleting all items */
-localStorage.clear()
+// localStorage.clear()
 
 // Do value môžeme zadávať mnoho informácií, napríklad aj objekty. Ale so všetkým pracuje ako so stringom (aj s číslami).
 
@@ -32,17 +32,17 @@ localStorage.clear()
  * Ide o statické metódy v jazyku JavaScript
 */
 
-const user = {
+const character = {
     firstName: 'Harry',
     age: 17
 }
 
-const userJSON = JSON.stringify(user) // Ak píšem JSON v premenných, tak zvyčajne sa píše veľkými písmenami
+const userJSON = JSON.stringify(character) // Ak píšem JSON v premenných, tak zvyčajne sa píše veľkými písmenami
 console.log(userJSON)
 
-localStorage.setItem('user', userJSON)
+localStorage.setItem('character', userJSON)
 
-const userFromLS = JSON.parse(localStorage.getItem('user'))
+const userFromLS = JSON.parse(localStorage.getItem('character'))
 console.log(userFromLS)
 
 console.log(`Hi, my name is ${userFromLS.firstName} and was ${userFromLS.age} when i killed Voldemort.`)
@@ -50,7 +50,7 @@ console.log(`Hi, my name is ${userFromLS.firstName} and was ${userFromLS.age} wh
 
 /** Ukladanie dát z poľa do LocalStorage */
 
-const myArray = JSON.parse(localStorage.getItem('characters')) || []
+const myArray = JSON.parse(localStorage.getItem('users')) || []
 
 const myForm = document.querySelector('#localStorage-frm')
 myForm.addEventListener('submit', (e) => {
@@ -60,7 +60,7 @@ myForm.addEventListener('submit', (e) => {
     myArray.push(firstName)
 
     const myArrayToLS = JSON.stringify(myArray)
-    localStorage.setItem('characters', myArrayToLS)
+    localStorage.setItem('users', myArrayToLS)
 
     e.target.reset()
 
@@ -71,20 +71,21 @@ myForm.addEventListener('submit', (e) => {
     // const myArrayFromLS = localStorage.getItem('characters') // Vytiahnutie z localStorage
     // const myArrayFromLSJson = JSON.parse(myArrayFromLS) // Prechod cez JSON
 
-    const myArrayFromLS = JSON.parse(localStorage.getItem('characters'))
+    const myArrayFromLS = JSON.parse(localStorage.getItem('users'))
 
     const paragraph = document.createElement('p')
     paragraph.textContent = myArrayFromLS[myArrayFromLS.length - 1]
 
-    document.querySelector('#characters-div').appendChild(paragraph)
+    document.querySelector('#users-div').appendChild(paragraph)
 })
 
-const parsedArray = JSON.parse(localStorage.getItem('characters'))
-parsedArray.forEach((character) => {
+const myParsedArray = JSON.parse(localStorage.getItem('users')) || []
+
+myParsedArray.forEach(user => {
     const paragraph = document.createElement('p')
-    paragraph.textContent = character
-    
-    document.querySelector('#characters-div').appendChild(paragraph)
+    paragraph.textContent = user
+
+    document.querySelector('#users-div').appendChild(paragraph)
 })
 
 
